@@ -1,1 +1,12 @@
+
+
 http://stackoverflow.com/questions/20467103/spring-mvc-maven-integration
+http://www.leveluplunch.com/java/tutorials/003-getting-started-with-spring-boot/
+http://kielczewski.eu/2014/04/spring-boot-mvc-application/
+	IMPORTANT:
+			spring.mvc.view.prefix=/WEB-INF/jsp/
+			spring.mvc.view.suffix=.jsp		
+		Plutôt que
+			spring.view.prefix=/WEB-INF/jsp/
+			spring.view.suffix=.jsp
+	

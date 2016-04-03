@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class jouerCtrl {
@@ -18,6 +19,12 @@ public class jouerCtrl {
         logger.info("getHome()");
         model.addAttribute("name", name);
         return "home";
+    }
+
+    @RequestMapping(value = "/homejsp", method = RequestMethod.GET)
+    public String getHomeJsp(ModelAndView modelAndView) {
+        logger.info("getHomeJsp()");
+        return "homejsp";
     }
 
 }
