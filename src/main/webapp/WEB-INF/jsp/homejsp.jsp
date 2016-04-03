@@ -8,6 +8,9 @@
 <body>
 
 	<h1>Hello world homejsp!</h1>
+	
+	<h2>Temps actuel: ${serverTime}.</h2>
+	
 
 </body>
 </html>

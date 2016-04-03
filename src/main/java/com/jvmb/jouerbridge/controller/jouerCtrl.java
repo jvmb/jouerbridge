@@ -1,5 +1,9 @@
 package com.jvmb.jouerbridge.controller;
 
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -14,16 +18,21 @@ public class jouerCtrl {
 
     private static final Logger logger = LoggerFactory.getLogger(jouerCtrl.class);
 
-    @RequestMapping(value = "/home", method = RequestMethod.GET)
-    public String getHome(@RequestParam(value = "name", required = false, defaultValue = "World") String name, Model model) {
-        logger.info("getHome()");
-        model.addAttribute("name", name);
-        return "home";
-    }
-
+    /**
+     * 
+     * @param model
+     * @param locale
+     * @return
+     */
     @RequestMapping(value = "/homejsp", method = RequestMethod.GET)
-    public String getHomeJsp(ModelAndView modelAndView) {
+    public String getHomeJsp(Model model, Locale locale) {
         logger.info("getHomeJsp()");
+
+        Date date = new Date();
+        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+        String formattedDate = dateFormat.format(date);
+        model.addAttribute("serverTime", formattedDate);
+
         return "homejsp";
     }
 
