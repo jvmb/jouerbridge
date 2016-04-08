@@ -10,3 +10,9 @@ http://kielczewski.eu/2014/04/spring-boot-mvc-application/
 			spring.view.prefix=/WEB-INF/jsp/
 			spring.view.suffix=.jsp
 	
+Pour bootstrap: commencer avec index.html + ajout simple-sidebar.css.
+
+Session and Cookies:
+https://dzone.com/articles/using-http-session-spring
+http://docs.spring.io/spring-session/docs/current-SNAPSHOT/reference/html5/guides/boot.html
+http://www.concretepage.com/spring/spring-mvc/spring-mvc-sessionattributes-cookievalue-annotation-example
