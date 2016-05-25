@@ -27,12 +27,20 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-  <style type="text/css">
-	.btn-group-fill-height .btn { 
-	  white-space: normal;
-	}
- </style>
- 
+<style type="text/css">
+
+a.btn.btn-default{
+padding: 0; 
+height: 22px;
+    width: 22px;
+
+	
+}
+div.col-sm-9{
+ width: 370px;
+}
+</style>
+
 </head>
 <body>
 
@@ -61,7 +69,7 @@
 						<h1>Simple Sidebar</h1>
 
 						<h2>Temps actuel: ${serverTime}.</h2>
-						
+
 						<p>This template has a responsive menu toggling system. The
 							menu will appear collapsed on smaller screens, and will appear
 							non-collapsed on larger screens. When toggled using the button
@@ -83,107 +91,134 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-4"></div>
-				<div class="col-sm-4" style="background-color: lightgray;">N Piques
-					<div class="btn-toolbar" role="toolbar">
-						<div class="btn-group btn-group-lg btn-group-justified btn-group-fill-height">
-							<a href="#" class="btn btn-default" role="button"> <span>R</span></a> 
-							<a href="#" class="btn btn-default" role="button"> <span>R</span></a> 
-							<a href="#" class="btn btn-default" role="button"> <span>R</span></a> 
-							<a href="#" class="btn btn-default" role="button"> <span>R</span></a> 
-							<a href="#" class="btn btn-default" role="button"> <span>R</span></a> 
-							<a href="#" class="btn btn-default" role="button"> <span>R</span></a>
-						</div>
+				<div class="col-sm-4" style="background-color: lightgray;">
+					<div class="col-sm-3">N Piques</div>
+					<div class="col-sm-9">
+<!-- 						<div class="btn-toolbar" role="toolbar"> -->
+<!-- 							<div class="btn-group btn-group-lg btn-group-justified btn-group-fill-height"> -->
+								
+								<!-- TODO centrer le 10, fixer largeur bouton  -->
+								<a href="#" class="btn btn-default" role="button"><span class="pull-left">A</span></a>
+								<a href="#" class="btn btn-default" role="button"><span class="pull-left">R</span></a>
+								<a href="#" class="btn btn-default" role="button"><span class="pull-left">D</span></a>
+								<a href="#" class="btn btn-default" role="button"><span class="pull-left">V</span></a>
+								<a href="#" class="btn btn-default" role="button"><span class="pull-left">10</span></a>
+								<a href="#" class="btn btn-default" role="button"><span class="pull-left">9</span></a>
+								<a href="#" class="btn btn-default" role="button"><span class="pull-left">8</span></a>
+								<a href="#" class="btn btn-default" role="button"><span class="pull-left">7</span></a>
+								<a href="#" class="btn btn-default" role="button"><span class="pull-left">6</span></a>
+								<a href="#" class="btn btn-default" role="button"><span class="pull-left">5</span></a>
+								<a href="#" class="btn btn-default" role="button"><span class="pull-left">4</span></a>
+								<a href="#" class="btn btn-default" role="button"><span class="pull-left">3</span></a>
+								<a href="#" class="btn btn-default" role="button"><span class="pull-left">2</span></a>
+<!-- 							</div> -->
+<!-- 						</div> -->
 					</div>
 				</div>
 				<div class="col-sm-4"></div>
 			</div>
 			<div class="row">
 				<div class="col-sm-4"></div>
-				<div class="col-sm-4" style="background-color: lightgray;">N Coeurs</div>
-				<div class="col-sm-4" ></div>
-			</div>
-				<div class="row">
+				<div class="col-sm-4" style="background-color: lightgray;">N
+					Coeurs</div>
 				<div class="col-sm-4"></div>
-				<div class="col-sm-4" style="background-color: lightgray;">N Carreaux</div>
-				<div class="col-sm-4" ></div>
 			</div>
 			<div class="row">
 				<div class="col-sm-4"></div>
-				<div class="col-sm-4" style="background-color: lightgray;">N Trèfles</div>
-				<div class="col-sm-4" ></div>
+				<div class="col-sm-4" style="background-color: lightgray;">N
+					Carreaux</div>
+				<div class="col-sm-4"></div>
 			</div>
 			<div class="row">
-				<div class="col-sm-4" style="background-color: lightgray;">O Piques</div>
+				<div class="col-sm-4"></div>
+				<div class="col-sm-4" style="background-color: lightgray;">N
+					Trèfles</div>
+				<div class="col-sm-4"></div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4" style="background-color: lightgray;">O
+					Piques</div>
 				<div class="col-sm-4">N</div>
-				<div class="col-sm-4" style="background-color: lightgray;">E Piques</div>
+				<div class="col-sm-4" style="background-color: lightgray;">E
+					Piques</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-4" style="background-color: lightgray;">O Coeurs</div>
+				<div class="col-sm-4" style="background-color: lightgray;">O
+					Coeurs</div>
 				<div class="col-sm-4">O</div>
-				<div class="col-sm-4" style="background-color: lightgray;">E Coeurs</div>
+				<div class="col-sm-4" style="background-color: lightgray;">E
+					Coeurs</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-4" style="background-color: lightgray;">O Carreaux</div>
+				<div class="col-sm-4" style="background-color: lightgray;">O
+					Carreaux</div>
 				<div class="col-sm-4">E</div>
-				<div class="col-sm-4" style="background-color: lightgray;">E Carreaux</div>
+				<div class="col-sm-4" style="background-color: lightgray;">E
+					Carreaux</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-4" style="background-color: lightgray;">O Trèfles</div>
+				<div class="col-sm-4" style="background-color: lightgray;">O
+					Trèfles</div>
 				<div class="col-sm-4">S</div>
-				<div class="col-sm-4" style="background-color: lightgray;">E Trèfles</div>
+				<div class="col-sm-4" style="background-color: lightgray;">E
+					Trèfles</div>
 			</div>
 			<div class="row">
 				<div class="col-sm-4"></div>
-				<div class="col-sm-4" style="background-color: lightgray;">S Piques</div>
-				<div class="col-sm-4" ></div>
+				<div class="col-sm-4" style="background-color: lightgray;">S
+					Piques</div>
+				<div class="col-sm-4"></div>
 			</div>
 			<div class="row">
 				<div class="col-sm-4"></div>
-				<div class="col-sm-4" style="background-color: lightgray;">S Coeurs</div>
-				<div class="col-sm-4" ></div>
-			</div>
-				<div class="row">
+				<div class="col-sm-4" style="background-color: lightgray;">S
+					Coeurs</div>
 				<div class="col-sm-4"></div>
-				<div class="col-sm-4" style="background-color: lightgray;">S Carreaux</div>
-				<div class="col-sm-4" ></div>
 			</div>
 			<div class="row">
 				<div class="col-sm-4"></div>
-				<div class="col-sm-4" style="background-color: lightgray;">S Trèfles</div>
-				<div class="col-sm-4" ></div>
-			</div>			
+				<div class="col-sm-4" style="background-color: lightgray;">S
+					Carreaux</div>
+				<div class="col-sm-4"></div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4"></div>
+				<div class="col-sm-4" style="background-color: lightgray;">S
+					Trèfles</div>
+				<div class="col-sm-4"></div>
+			</div>
 		</div>
-		
-<!-- 		<div class="container"> -->
-<!-- 		  <div class="btn-toolbar" role="toolbar"> -->
-<!-- 		    <div class="btn-group btn-group-lg btn-group-justified btn-group-fill-height"> -->
-<!-- 		      <a href="#" class="btn btn-default" role="button"> -->
-<!-- 		        <strong>Part A</strong><br> -->
-<!-- 		        <span>Summary</span> -->
-<!-- 		      </a> -->
-<!-- 		      <a href="#" class="btn btn-default" role="button"> -->
-<!-- 		        <strong>Part B</strong><br> -->
-<!-- 		        <span>Very Long Summary</span> -->
-<!-- 		      </a> -->
-<!-- 		      <a href="#" class="btn btn-default" role="button"> -->
-<!-- 		        <strong>Part D</strong><br> -->
-<!-- 		        <span>Summary</span> -->
-<!-- 		      </a> -->
-<!-- 		      <a href="#" class="btn btn-default" role="button"> -->
-<!-- 		        <strong>Part E</strong><br> -->
-<!-- 		        <span>Long Summary That's Annoyingly Long</span> -->
-<!-- 		      </a> -->
-<!-- 		      <a href="#" class="btn btn-default" role="button"> -->
-<!-- 		        <strong>Part F</strong><br> -->
-<!-- 		        <span>Summary</span> -->
-<!-- 		      </a> -->
-<!-- 		      <a href="#" class="btn btn-default" role="button"> -->
-<!-- 		        <strong>Part G</strong><br> -->
-<!-- 		        <span>Very Long Summary</span> -->
-<!-- 		      </a> -->
-<!-- 		    </div> -->
-<!-- 		  </div> -->
-<!-- 		</div>		 -->
+
+		<!-- 		<div class="container"> -->
+		<!-- 		  <div class="btn-toolbar" role="toolbar"> -->
+		<!-- 		    <div class="btn-group btn-group-lg btn-group-justified btn-group-fill-height"> -->
+		<!-- 		      <a href="#" class="btn btn-default" role="button"> -->
+		<!-- 		        <strong>Part A</strong><br> -->
+		<!-- 		        <span>Summary</span> -->
+		<!-- 		      </a> -->
+		<!-- 		      <a href="#" class="btn btn-default" role="button"> -->
+		<!-- 		        <strong>Part B</strong><br> -->
+		<!-- 		        <span>Very Long Summary</span> -->
+		<!-- 		      </a> -->
+		<!-- 		      <a href="#" class="btn btn-default" role="button"> -->
+		<!-- 		        <strong>Part D</strong><br> -->
+		<!-- 		        <span>Summary</span> -->
+		<!-- 		      </a> -->
+		<!-- 		      <a href="#" class="btn btn-default" role="button"> -->
+		<!-- 		        <strong>Part E</strong><br> -->
+		<!-- 		        <span>Long Summary That's Annoyingly Long</span> -->
+		<!-- 		      </a> -->
+		<!-- 		      <a href="#" class="btn btn-default" role="button"> -->
+		<!-- 		        <strong>Part F</strong><br> -->
+		<!-- 		        <span>Summary</span> -->
+		<!-- 		      </a> -->
+		<!-- 		      <a href="#" class="btn btn-default" role="button"> -->
+		<!-- 		        <strong>Part G</strong><br> -->
+		<!-- 		        <span>Very Long Summary</span> -->
+		<!-- 		      </a> -->
+		<!-- 		    </div> -->
+		<!-- 		  </div> -->
+		<!-- 		</div>		 -->
 
 	</div>
 	<!-- /#wrapper -->
@@ -201,7 +236,5 @@
 			$("#wrapper").toggleClass("toggled");
 		});
 	</script>
-
-
 </body>
 </html>
