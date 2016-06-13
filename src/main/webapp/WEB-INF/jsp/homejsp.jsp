@@ -22,7 +22,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
       <style type="text/css">
-         a.btn.btn-default{
+         a.btn.btn-default.btn-carte{
          padding: 0; 
          height: 22px;
          width: 22px;
@@ -79,19 +79,19 @@
                <div class="col-sm-4" style="background-color: lightgray;">
                   <div class="col-sm-3">N Piques</div>
                   <div class="col-sm-9">
-                     <a href="#" class="btn btn-default" role="button"><span class="pull-left">A</span></a>
-                     <a href="#" class="btn btn-default" role="button"><span class="pull-left">R</span></a>
-                     <a href="#" class="btn btn-default" role="button"><span class="pull-left">D</span></a>
-                     <a href="#" class="btn btn-default" role="button"><span class="pull-left">V</span></a>
-                     <a href="#" class="btn btn-default" role="button"><span class="pull-left">10</span></a>
-                     <a href="#" class="btn btn-default" role="button"><span class="pull-left">9</span></a>
-                     <a href="#" class="btn btn-default" role="button"><span class="pull-left">8</span></a>
-                     <a href="#" class="btn btn-default" role="button"><span class="pull-left">7</span></a>
-                     <a href="#" class="btn btn-default" role="button"><span class="pull-left">6</span></a>
-                     <a href="#" class="btn btn-default" role="button"><span class="pull-left">5</span></a>
-                     <a href="#" class="btn btn-default" role="button"><span class="pull-left">4</span></a>
-                     <a href="#" class="btn btn-default" role="button"><span class="pull-left">3</span></a>
-                     <a href="#" class="btn btn-default" role="button"><span class="pull-left">2</span></a>
+                     <a href="#" class="btn btn-default btn-carte" role="button"><span class="pull-left">A</span></a>
+                     <a href="#" class="btn btn-default btn-carte" role="button"><span class="pull-left">R</span></a>
+                     <a href="#" class="btn btn-default btn-carte" role="button"><span class="pull-left">D</span></a>
+                     <a href="#" class="btn btn-default btn-carte" role="button"><span class="pull-left">V</span></a>
+                     <a href="#" class="btn btn-default btn-carte" role="button"><span class="pull-left">10</span></a>
+                     <a href="#" class="btn btn-default btn-carte" role="button"><span class="pull-left">9</span></a>
+                     <a href="#" class="btn btn-default btn-carte" role="button"><span class="pull-left">8</span></a>
+                     <a href="#" class="btn btn-default btn-carte" role="button"><span class="pull-left">7</span></a>
+                     <a href="#" class="btn btn-default btn-carte" role="button"><span class="pull-left">6</span></a>
+                     <a href="#" class="btn btn-default btn-carte" role="button"><span class="pull-left">5</span></a>
+                     <a href="#" class="btn btn-default btn-carte" role="button"><span class="pull-left">4</span></a>
+                     <a href="#" class="btn btn-default btn-carte" role="button"><span class="pull-left">3</span></a>
+                     <a href="#" class="btn btn-default btn-carte" role="button"><span class="pull-left">2</span></a>
                   </div>
                </div>
                <div class="col-sm-4"></div>
