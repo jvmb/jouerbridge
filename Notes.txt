@@ -16,3 +16,6 @@ Session and Cookies:
 https://dzone.com/articles/using-http-session-spring
 http://docs.spring.io/spring-session/docs/current-SNAPSHOT/reference/html5/guides/boot.html
 http://www.concretepage.com/spring/spring-mvc/spring-mvc-sessionattributes-cookievalue-annotation-example
+
+ModelAndView example
+https://www.mkyong.com/spring-mvc/spring-mvc-and-list-example/
