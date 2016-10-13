@@ -1,0 +1,10 @@
+/* jouerbridge.css */
+a.btn.btn-default.btn-carte {
+	padding: 0;
+	height: 22px;
+	width: 22px;
+}
+
+div.col-sm-9 {
+	width: 370px;
+}
