@@ -4,14 +4,16 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.jvmb.jouerbridge.model.Carte;
 import com.jvmb.jouerbridge.model.VueTable;
@@ -21,6 +23,8 @@ public class jouerCtrl {
 
     private static final Logger logger = LoggerFactory.getLogger(jouerCtrl.class);
 
+    private static String INFO_SESSION = "infosession";
+
     /**
      * 
      * @param model
@@ -28,8 +32,10 @@ public class jouerCtrl {
      * @return
      */
     @RequestMapping(value = "/homejsp", method = RequestMethod.GET)
-    public String getHomeJsp(Model model, Locale locale) {
+    public String getHomeJsp(Model model, Locale locale, HttpSession session) {
         logger.info("getHomeJsp()");
+
+        // session.invalidate();
 
         VueTable vt = new VueTable();
 
@@ -47,7 +53,7 @@ public class jouerCtrl {
         vt.getMainSud().add(Carte._9T.getRang());
         vt.getMainSud().add(Carte._8T.getRang());
         vt.getMainSud().add(Carte._6T.getRang());
-        
+
         vt.getMainOuest().add(Carte._10P.getRang());
         vt.getMainOuest().add(Carte._9P.getRang());
         vt.getMainOuest().add(Carte._7P.getRang());
@@ -61,7 +67,7 @@ public class jouerCtrl {
         vt.getMainOuest().add(Carte._7T.getRang());
         vt.getMainOuest().add(Carte._4T.getRang());
         vt.getMainOuest().add(Carte._2T.getRang());
-        
+
         vt.getMainNord().add(Carte.RP.getRang());
         vt.getMainNord().add(Carte._5P.getRang());
         vt.getMainNord().add(Carte._2P.getRang());
@@ -75,7 +81,7 @@ public class jouerCtrl {
         vt.getMainNord().add(Carte.VT.getRang());
         vt.getMainNord().add(Carte._10T.getRang());
         vt.getMainNord().add(Carte._5T.getRang());
-       
+
         vt.getMainEst().add(Carte.VP.getRang());
         vt.getMainEst().add(Carte._8P.getRang());
         vt.getMainEst().add(Carte.AC.getRang());
@@ -89,7 +95,8 @@ public class jouerCtrl {
         vt.getMainEst().add(Carte._3K.getRang());
         vt.getMainEst().add(Carte.RT.getRang());
         vt.getMainEst().add(Carte._3T.getRang());
-        
+
+        session.setAttribute(INFO_SESSION, vt);
 
         Date date = new Date();
         DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
@@ -98,6 +105,23 @@ public class jouerCtrl {
         model.addAttribute("mainVue", vt);
 
         return "homejsp";
+    }
+
+    @RequestMapping(value = "/jouer", method = RequestMethod.GET)
+    public String jouerUneCarte(@RequestParam(value = "direction", required = true) String direction,
+            @RequestParam(value = "carte", required = true) Integer carte, ModelMap model, Locale locale, HttpSession session) {
+
+        // TODO - Travailler les cartes
+        VueTable vt = (VueTable) session.getAttribute(INFO_SESSION);
+
+        Date date = new Date();
+        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+        String formattedDate = dateFormat.format(date);
+        model.addAttribute("serverTime", formattedDate);
+        model.addAttribute("mainVue", vt);
+
+        return "homejsp";
+
     }
 
     public static void main(String[] args) {
