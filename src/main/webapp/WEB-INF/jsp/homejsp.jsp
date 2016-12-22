@@ -73,22 +73,34 @@
                     </div>
                     <div class="row">
                         <div id="OP" class="col-sm-4" style="background-color: lightgray;"></div>
-                        <div id="N" class="col-sm-4"></div>
+                        <div id="N-1" class="col-sm-1"></div>
+                        <div id="N" class="col-sm-1"></div>
+                        <div id="N+1" class="col-sm-1"></div>
+                        <div id="N+2" class="col-sm-1"></div>
                         <div id="EP" class="col-sm-4" style="background-color: lightgray;"></div>
                     </div>
                     <div class="row">
                         <div id="OC" class="col-sm-4" style="background-color: lightgray;"></div>
-                        <div id="O" class="col-sm-4"></div>
+                        <div id="O" class="col-sm-1"></div>
+                        <div id="O+1" class="col-sm-1"></div>
+                        <div id="O+2" class="col-sm-1"></div>
+                        <div id="O+3" class="col-sm-1"></div>
                         <div id="EC" class="col-sm-4" style="background-color: lightgray;"></div>
                     </div>
                     <div class="row">
                         <div id="OK" class="col-sm-4" style="background-color: lightgray;"></div>
-                        <div id="E" class="col-sm-4"></div>
+                        <div id="E-3" class="col-sm-1"></div>
+                        <div id="E-2" class="col-sm-1"></div>
+                        <div id="E-1" class="col-sm-1"></div>
+                        <div id="E" class="col-sm-1"></div>
                         <div id="EK" class="col-sm-4" style="background-color: lightgray;"></div>
                     </div>
                     <div class="row">
                         <div id="OT" class="col-sm-4" style="background-color: lightgray;"></div>
-                        <div id="S" class="col-sm-4"></div>
+                        <div id="S-2" class="col-sm-1"></div>
+                        <div id="S-1" class="col-sm-1"></div>
+                        <div id="S" class="col-sm-1"></div>
+                        <div id="S+1" class="col-sm-1"></div>
                         <div id="ET" class="col-sm-4" style="background-color: lightgray;"></div>
                     </div>
                     <div class="row">
@@ -123,6 +135,10 @@
                 <input id="mOuestId" type="hidden" value="${mainVue.mainOuest}" name="mOuestVar" />
                 <input id="mNordId" type="hidden" value="${mainVue.mainNord}" name="mNordVar" />
                 <input id="mEstId" type="hidden" value="${mainVue.mainEst}" name="mEstVar" />
+                <input id="mSudIdCarte" type="hidden" value="${mainVue.carteSud}" name="mSudIdCarte" />
+                <input id="mOuestIdCarte" type="hidden" value="${mainVue.carteOuest}" name="mOuestVarCarte" />
+                <input id="mNordIdCarte" type="hidden" value="${mainVue.carteNord}" name="mNordVarCarte" />
+                <input id="mEstIdCarte" type="hidden" value="${mainVue.carteEst}" name="mEstVarCarte" />
             </div>
 
 

@@ -29,8 +29,10 @@ public class jouerCtrl {
      * 
      * @param model
      * @param locale
+     * @param session
      * @return
      */
+
     @RequestMapping(value = "/homejsp", method = RequestMethod.GET)
     public String getHomeJsp(Model model, Locale locale, HttpSession session) {
         logger.info("getHomeJsp()");
@@ -107,12 +109,47 @@ public class jouerCtrl {
         return "homejsp";
     }
 
+    /**
+     * 
+     * @param direction
+     * @param carte
+     * @param model
+     * @param locale
+     * @param session
+     * @return
+     */
     @RequestMapping(value = "/jouer", method = RequestMethod.GET)
     public String jouerUneCarte(@RequestParam(value = "direction", required = true) String direction,
             @RequestParam(value = "carte", required = true) Integer carte, ModelMap model, Locale locale, HttpSession session) {
 
         // TODO - Travailler les cartes
         VueTable vt = (VueTable) session.getAttribute(INFO_SESSION);
+
+        // List<Integer> mainTraite = null;
+
+        // Trouver la bonne main
+        switch (direction) {
+        case "S":
+            vt.getMainSud().remove(carte);
+            vt.setCarteSud(carte);
+            break;
+        case "O":
+            vt.getMainOuest().remove(carte);
+            vt.setCarteOuest(carte);
+            break;
+        case "N":
+            vt.getMainNord().remove(carte);
+            vt.setCarteNord(carte);
+            break;
+        case "E":
+            vt.getMainEst().remove(carte);
+            vt.setCarteEst(carte);
+            break;
+
+        default:
+            // TODO - traitement erreur
+
+        }
 
         Date date = new Date();
         DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
