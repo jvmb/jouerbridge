@@ -62,12 +62,14 @@ function afficheMain(direction, chaineMain) {
 	// Use .after or .before
 	// $('.submit').after($('<input type="button" value="test">'));
 
+	// TODO - écrire une fonction retour couleur...
+
 	var carte = chaineMain.split(',');
 	$.each(carte, function(key, value) {
 		var numCarte = parseInt(value.trim());
 		var bouton = "<a href=\"/jouer?direction=" + direction + "&carte=" + numCarte + "\""
-				+ " class=\"btn btn-default btn-carte\" role=\"button\"><span class=\"text-center\">" + retourRang(numCarte) + retourSorteSymbole(numCarte)
-				+ "</span></a>";
+				+ " class=\"btn btn-default btn-carte\" role=\"button\"><span class=\"text-center\"  style=\"color:red;\">" + retourRang(numCarte)
+				+ retourSorteSymbole(numCarte) + "</span></a>";
 		console.log(bouton);
 		var directionSorte = "#" + direction + retourSorte(numCarte);
 		console.log(directionSorte);

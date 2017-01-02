@@ -5,7 +5,11 @@ import java.util.Date;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 
+import org.eclipse.persistence.jaxb.MarshallerProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -16,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jvmb.jouerbridge.model.Carte;
+import com.jvmb.jouerbridge.model.StockageTable;
 import com.jvmb.jouerbridge.model.VueTable;
 
 @Controller
@@ -161,13 +166,32 @@ public class jouerCtrl {
 
     }
 
-    public static void main(String[] args) {
-        Carte asPique = Carte.AP;
-        Carte _2trefle = Carte._2T;
+    public static void main(String[] args) throws JAXBException {
+        // https://examples.javacodegeeks.com/core-java/xml/bind/jaxb-json-example/
 
-        if (asPique.compareTo(_2trefle) > 0) {
-            System.out.println("asPique plus grand");
-        }
+        StockageTable mtb = new StockageTable();
+
+        mtb.getMainSud().add(1);
+        mtb.getMainOuest().add(2);
+        mtb.getMainNord().add(3);
+        mtb.getMainEst().add(4);
+
+        // Create a JaxBContext
+        JAXBContext jc = JAXBContext.newInstance(StockageTable.class);
+        // Create the Marshaller Object using the JaxB Context
+        Marshaller marshaller = jc.createMarshaller();
+        // Set the Marshaller media type to JSON or XML
+        marshaller.setProperty(MarshallerProperties.MEDIA_TYPE, "application/json");
+
+        // Set it to true if you need to include the JSON root element in the
+        // JSON output
+        marshaller.setProperty(MarshallerProperties.JSON_INCLUDE_ROOT, true);
+
+        // Set it to true if you need the JSON output to formatted
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+        // Marshal the employee object to JSON and print the output to console
+        marshaller.marshal(mtb, System.out);
 
     }
 }
