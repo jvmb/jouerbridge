@@ -1,8 +1,5 @@
 package com.jvmb.jouerbridge.model;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -17,46 +14,158 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class StockageTable {
 
-    private List<Integer> mainSud = new LinkedList<Integer>();
-    private List<Integer> mainOuest = new LinkedList<Integer>();
-    private List<Integer> mainNord = new LinkedList<Integer>();
-    private List<Integer> mainEst = new LinkedList<Integer>();
+    private String mainSudPique;
+    private String mainSudCoeur;
+    private String mainSudCarreau;
+    private String mainSudTrefle;
+    private String mainOuestPique;
+    private String mainOuestCoeur;
+    private String mainOuestCarreau;
+    private String mainOuestTrefle;
+    private String mainNordPique;
+    private String mainNordCoeur;
+    private String mainNordCarreau;
+    private String mainNordTrefle;
+    private String mainEstPique;
+    private String mainEstCoeur;
+    private String mainEstCarreau;
+    private String mainEstTrefle;
 
-    public List<Integer> getMainSud() {
-        return mainSud;
+    public String getMainSudPique() {
+        return mainSudPique;
     }
 
-    public void setMainSud(List<Integer> mainSud) {
-        this.mainSud = mainSud;
+    public void setMainSudPique(String mainSudPique) {
+        this.mainSudPique = mainSudPique;
     }
 
-    public List<Integer> getMainOuest() {
-        return mainOuest;
+    public String getMainSudCoeur() {
+        return mainSudCoeur;
     }
 
-    public void setMainOuest(List<Integer> mainOuest) {
-        this.mainOuest = mainOuest;
+    public void setMainSudCoeur(String mainSudCoeur) {
+        this.mainSudCoeur = mainSudCoeur;
     }
 
-    public List<Integer> getMainNord() {
-        return mainNord;
+    public String getMainSudCarreau() {
+        return mainSudCarreau;
     }
 
-    public void setMainNord(List<Integer> mainNord) {
-        this.mainNord = mainNord;
+    public void setMainSudCarreau(String mainSudCarreau) {
+        this.mainSudCarreau = mainSudCarreau;
     }
 
-    public List<Integer> getMainEst() {
-        return mainEst;
+    public String getMainSudTrefle() {
+        return mainSudTrefle;
     }
 
-    public void setMainEst(List<Integer> mainEst) {
-        this.mainEst = mainEst;
+    public void setMainSudTrefle(String mainSudTrefle) {
+        this.mainSudTrefle = mainSudTrefle;
+    }
+
+    public String getMainOuestPique() {
+        return mainOuestPique;
+    }
+
+    public void setMainOuestPique(String mainOuestPique) {
+        this.mainOuestPique = mainOuestPique;
+    }
+
+    public String getMainOuestCoeur() {
+        return mainOuestCoeur;
+    }
+
+    public void setMainOuestCoeur(String mainOuestCoeur) {
+        this.mainOuestCoeur = mainOuestCoeur;
+    }
+
+    public String getMainOuestCarreau() {
+        return mainOuestCarreau;
+    }
+
+    public void setMainOuestCarreau(String mainOuestCarreau) {
+        this.mainOuestCarreau = mainOuestCarreau;
+    }
+
+    public String getMainOuestTrefle() {
+        return mainOuestTrefle;
+    }
+
+    public void setMainOuestTrefle(String mainOuestTrefle) {
+        this.mainOuestTrefle = mainOuestTrefle;
+    }
+
+    public String getMainNordPique() {
+        return mainNordPique;
+    }
+
+    public void setMainNordPique(String mainNordPique) {
+        this.mainNordPique = mainNordPique;
+    }
+
+    public String getMainNordCoeur() {
+        return mainNordCoeur;
+    }
+
+    public void setMainNordCoeur(String mainNordCoeur) {
+        this.mainNordCoeur = mainNordCoeur;
+    }
+
+    public String getMainNordCarreau() {
+        return mainNordCarreau;
+    }
+
+    public void setMainNordCarreau(String mainNordCarreau) {
+        this.mainNordCarreau = mainNordCarreau;
+    }
+
+    public String getMainNordTrefle() {
+        return mainNordTrefle;
+    }
+
+    public void setMainNordTrefle(String mainNordTrefle) {
+        this.mainNordTrefle = mainNordTrefle;
+    }
+
+    public String getMainEstPique() {
+        return mainEstPique;
+    }
+
+    public void setMainEstPique(String mainEstPique) {
+        this.mainEstPique = mainEstPique;
+    }
+
+    public String getMainEstCoeur() {
+        return mainEstCoeur;
+    }
+
+    public void setMainEstCoeur(String mainEstCoeur) {
+        this.mainEstCoeur = mainEstCoeur;
+    }
+
+    public String getMainEstCarreau() {
+        return mainEstCarreau;
+    }
+
+    public void setMainEstCarreau(String mainEstCarreau) {
+        this.mainEstCarreau = mainEstCarreau;
+    }
+
+    public String getMainEstTrefle() {
+        return mainEstTrefle;
+    }
+
+    public void setMainEstTrefle(String mainEstTrefle) {
+        this.mainEstTrefle = mainEstTrefle;
     }
 
     @Override
     public String toString() {
-        return "StockageTable [mainSud=" + mainSud + ", mainOuest=" + mainOuest + ", mainNord=" + mainNord + ", mainEst=" + mainEst + "]";
+        return "StockageTable [mainSudPique=" + mainSudPique + ", mainSudCoeur=" + mainSudCoeur + ", mainSudCarreau=" + mainSudCarreau + ", mainSudTrefle="
+                + mainSudTrefle + ",\n\nmainOuestPique=" + mainOuestPique + ", mainOuestCoeur=" + mainOuestCoeur + ", mainOuestCarreau=" + mainOuestCarreau
+                + ", mainOuestTrefle=" + mainOuestTrefle + ",\n\nmainNordPique=" + mainNordPique + ", mainNordCoeur=" + mainNordCoeur + ", mainNordCarreau="
+                + mainNordCarreau + ", mainNordTrefle=" + mainNordTrefle + ",\n\nmainEstPique=" + mainEstPique + ", mainEstCoeur=" + mainEstCoeur
+                + ", mainEstCarreau=" + mainEstCarreau + ", mainEstTrefle=" + mainEstTrefle + "]";
     }
 
 }

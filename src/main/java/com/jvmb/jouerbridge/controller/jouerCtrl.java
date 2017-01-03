@@ -1,5 +1,6 @@
 package com.jvmb.jouerbridge.controller;
 
+import java.io.File;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -7,9 +8,9 @@ import java.util.Locale;
 import javax.servlet.http.HttpSession;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 
-import org.eclipse.persistence.jaxb.MarshallerProperties;
+import org.eclipse.persistence.jaxb.UnmarshallerProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -169,29 +170,71 @@ public class jouerCtrl {
     public static void main(String[] args) throws JAXBException {
         // https://examples.javacodegeeks.com/core-java/xml/bind/jaxb-json-example/
 
-        StockageTable mtb = new StockageTable();
+        // MARSHALL
+        String fileMarsh = "/Users/marcbeaulieu/developpement/jouerbridge/mainTable.json";
+        // File fileOutput = new File(fileMarsh);
+        //
+        // StockageTable mtbOutput = new StockageTable();
+        //
+        // mtbOutput.setMainSudPique("A,7,3");
+        // mtbOutput.setMainSudCoeur("A,K,10,4");
+        // mtbOutput.setMainSudCarreau("K,9,8");
+        // mtbOutput.setMainSudTrefle("Q,J,4");
+        //
+        // mtbOutput.setMainOuestPique("K,Q,J,9,8");
+        // mtbOutput.setMainOuestCoeur("Q,8,7");
+        // mtbOutput.setMainOuestCarreau("4,3,2");
+        // mtbOutput.setMainOuestTrefle("6,2");
+        //
+        // mtbOutput.setMainNordPique("10,5");
+        // mtbOutput.setMainNordCoeur("J,9");
+        // mtbOutput.setMainNordCarreau("A,J,10,7");
+        // mtbOutput.setMainNordTrefle("A,10,9,7,3");
+        //
+        // mtbOutput.setMainEstPique("6,4,2");
+        // mtbOutput.setMainEstCoeur("6,5,3,2");
+        // mtbOutput.setMainEstCarreau("Q,6,5");
+        // mtbOutput.setMainEstTrefle("K,8,5");
 
-        mtb.getMainSud().add(1);
-        mtb.getMainOuest().add(2);
-        mtb.getMainNord().add(3);
-        mtb.getMainEst().add(4);
+        // // Create a JaxBContext
+        // JAXBContext jcOutput = JAXBContext.newInstance(StockageTable.class);
+        // // Create the Marshaller Object using the JaxB Context
+        // Marshaller marshaller = jcOutput.createMarshaller();
+        // // Set the Marshaller media type to JSON or XML
+        // marshaller.setProperty(MarshallerProperties.MEDIA_TYPE,
+        // "application/json");
+        //
+        // // Set it to true if you need to include the JSON root element in the
+        // // JSON output
+        // marshaller.setProperty(MarshallerProperties.JSON_INCLUDE_ROOT, true);
+        //
+        // // Set it to true if you need the JSON output to formatted
+        // marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        //
+        // // Marshal the employee object to JSON and print the output to
+        // console
+        // marshaller.marshal(mtbOutput, System.out);
+        // marshaller.marshal(mtbOutput, fileOutput);
+
+        // UNMARSHALL
+        File fileInput = new File(fileMarsh);
 
         // Create a JaxBContext
-        JAXBContext jc = JAXBContext.newInstance(StockageTable.class);
-        // Create the Marshaller Object using the JaxB Context
-        Marshaller marshaller = jc.createMarshaller();
-        // Set the Marshaller media type to JSON or XML
-        marshaller.setProperty(MarshallerProperties.MEDIA_TYPE, "application/json");
+        JAXBContext jcInput = JAXBContext.newInstance(StockageTable.class);
+
+        // Create the Unmarshaller Object using the JaxB Context
+        Unmarshaller unmarshaller = jcInput.createUnmarshaller();
+
+        // Set the Unmarshaller media type to JSON or XML
+        unmarshaller.setProperty(UnmarshallerProperties.MEDIA_TYPE, "application/json");
 
         // Set it to true if you need to include the JSON root element in the
-        // JSON output
-        marshaller.setProperty(MarshallerProperties.JSON_INCLUDE_ROOT, true);
+        // JSON input
+        unmarshaller.setProperty(UnmarshallerProperties.JSON_INCLUDE_ROOT, true);
 
-        // Set it to true if you need the JSON output to formatted
-        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-
-        // Marshal the employee object to JSON and print the output to console
-        marshaller.marshal(mtb, System.out);
+        StockageTable mtbInput = (StockageTable) unmarshaller.unmarshal(fileInput);
+        System.out.println("=================");
+        System.out.println(mtbInput);
 
     }
 }
