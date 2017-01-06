@@ -1,7 +1,10 @@
 package com.jvmb.jouerbridge.model;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+
+import com.jvmb.jouerbridge.util.ModelUtils;
 
 /**
  * Modèle POJO pour affciher une planchette de bridge et des notes.
@@ -22,6 +25,46 @@ public class VueTable {
     private Integer carteOuest;
     private Integer carteNord;
     private Integer carteEst;
+
+    /**
+     * 
+     */
+    public VueTable() {
+        super();
+    }
+
+    /**
+     * 
+     * @param sTable
+     */
+    public VueTable(StockageTable sTable) {
+        super();
+        // Batit main sud
+        mainSud.addAll(ModelUtils.mainStockVersVue(sTable.getMainSudPique(), Sorte.PIQUE));
+        mainSud.addAll(ModelUtils.mainStockVersVue(sTable.getMainSudCoeur(), Sorte.COEUR));
+        mainSud.addAll(ModelUtils.mainStockVersVue(sTable.getMainSudCarreau(), Sorte.CARREAU));
+        mainSud.addAll(ModelUtils.mainStockVersVue(sTable.getMainSudTrefle(), Sorte.TREFLE));
+        Collections.sort(mainSud, Collections.reverseOrder());
+        // Batit main ouest
+        mainOuest.addAll(ModelUtils.mainStockVersVue(sTable.getMainOuestPique(), Sorte.PIQUE));
+        mainOuest.addAll(ModelUtils.mainStockVersVue(sTable.getMainOuestCoeur(), Sorte.COEUR));
+        mainOuest.addAll(ModelUtils.mainStockVersVue(sTable.getMainOuestCarreau(), Sorte.CARREAU));
+        mainOuest.addAll(ModelUtils.mainStockVersVue(sTable.getMainOuestTrefle(), Sorte.TREFLE));
+        Collections.sort(mainOuest, Collections.reverseOrder());
+        // Batit main nord
+        mainNord.addAll(ModelUtils.mainStockVersVue(sTable.getMainNordPique(), Sorte.PIQUE));
+        mainNord.addAll(ModelUtils.mainStockVersVue(sTable.getMainNordCoeur(), Sorte.COEUR));
+        mainNord.addAll(ModelUtils.mainStockVersVue(sTable.getMainNordCarreau(), Sorte.CARREAU));
+        mainNord.addAll(ModelUtils.mainStockVersVue(sTable.getMainNordTrefle(), Sorte.TREFLE));
+        Collections.sort(mainNord, Collections.reverseOrder());
+        // Batit main est
+        mainEst.addAll(ModelUtils.mainStockVersVue(sTable.getMainEstPique(), Sorte.PIQUE));
+        mainEst.addAll(ModelUtils.mainStockVersVue(sTable.getMainEstCoeur(), Sorte.COEUR));
+        mainEst.addAll(ModelUtils.mainStockVersVue(sTable.getMainEstCarreau(), Sorte.CARREAU));
+        mainEst.addAll(ModelUtils.mainStockVersVue(sTable.getMainEstTrefle(), Sorte.TREFLE));
+        Collections.sort(mainEst, Collections.reverseOrder());
+
+    }
 
     public List<Integer> getMainSud() {
         return mainSud;

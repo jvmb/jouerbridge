@@ -18,18 +18,26 @@ public class StockageTable {
     private String mainSudCoeur;
     private String mainSudCarreau;
     private String mainSudTrefle;
+
     private String mainOuestPique;
     private String mainOuestCoeur;
     private String mainOuestCarreau;
     private String mainOuestTrefle;
+
     private String mainNordPique;
     private String mainNordCoeur;
     private String mainNordCarreau;
     private String mainNordTrefle;
+
     private String mainEstPique;
     private String mainEstCoeur;
     private String mainEstCarreau;
     private String mainEstTrefle;
+
+    private String encheres;
+    private String donneur;
+    private String vulnerabilite;
+    private String notes;
 
     public String getMainSudPique() {
         return mainSudPique;
@@ -159,13 +167,46 @@ public class StockageTable {
         this.mainEstTrefle = mainEstTrefle;
     }
 
+    public String getEncheres() {
+        return encheres;
+    }
+
+    public void setEncheres(String encheres) {
+        this.encheres = encheres;
+    }
+
+    public String getDonneur() {
+        return donneur;
+    }
+
+    public void setDonneur(String donneur) {
+        this.donneur = donneur;
+    }
+
+    public String getVulnerabilite() {
+        return vulnerabilite;
+    }
+
+    public void setVulnerabilite(String vulnerabilite) {
+        this.vulnerabilite = vulnerabilite;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
     @Override
     public String toString() {
         return "StockageTable [mainSudPique=" + mainSudPique + ", mainSudCoeur=" + mainSudCoeur + ", mainSudCarreau=" + mainSudCarreau + ", mainSudTrefle="
-                + mainSudTrefle + ",\n\nmainOuestPique=" + mainOuestPique + ", mainOuestCoeur=" + mainOuestCoeur + ", mainOuestCarreau=" + mainOuestCarreau
-                + ", mainOuestTrefle=" + mainOuestTrefle + ",\n\nmainNordPique=" + mainNordPique + ", mainNordCoeur=" + mainNordCoeur + ", mainNordCarreau="
-                + mainNordCarreau + ", mainNordTrefle=" + mainNordTrefle + ",\n\nmainEstPique=" + mainEstPique + ", mainEstCoeur=" + mainEstCoeur
-                + ", mainEstCarreau=" + mainEstCarreau + ", mainEstTrefle=" + mainEstTrefle + "]";
+                + mainSudTrefle + ", mainOuestPique=" + mainOuestPique + ", mainOuestCoeur=" + mainOuestCoeur + ", mainOuestCarreau=" + mainOuestCarreau
+                + ", mainOuestTrefle=" + mainOuestTrefle + ", mainNordPique=" + mainNordPique + ", mainNordCoeur=" + mainNordCoeur + ", mainNordCarreau="
+                + mainNordCarreau + ", mainNordTrefle=" + mainNordTrefle + ", mainEstPique=" + mainEstPique + ", mainEstCoeur=" + mainEstCoeur
+                + ", mainEstCarreau=" + mainEstCarreau + ", mainEstTrefle=" + mainEstTrefle + ", encheres=" + encheres + ", donneur=" + donneur
+                + ", vulnerabilite=" + vulnerabilite + ", notes=" + notes + "]";
     }
 
 }

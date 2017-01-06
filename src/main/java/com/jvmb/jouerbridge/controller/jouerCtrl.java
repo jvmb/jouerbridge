@@ -8,6 +8,7 @@ import java.util.Locale;
 import javax.servlet.http.HttpSession;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.PropertyException;
 import javax.xml.bind.Unmarshaller;
 
 import org.eclipse.persistence.jaxb.UnmarshallerProperties;
@@ -20,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.jvmb.jouerbridge.model.Carte;
 import com.jvmb.jouerbridge.model.StockageTable;
 import com.jvmb.jouerbridge.model.VueTable;
 
@@ -37,72 +37,103 @@ public class jouerCtrl {
      * @param locale
      * @param session
      * @return
+     * @throws JAXBException
      */
 
     @RequestMapping(value = "/homejsp", method = RequestMethod.GET)
     public String getHomeJsp(Model model, Locale locale, HttpSession session) {
         logger.info("getHomeJsp()");
 
+        String fileMarsh = "/Users/marcbeaulieu/developpement/jouerbridge/mainTable.json";
+        File fileInput = new File(fileMarsh);
+        StockageTable mtbInput = null;
+
+        try {
+            // Create a JaxBContext
+            JAXBContext jcInput = JAXBContext.newInstance(StockageTable.class);
+
+            // Create the Unmarshaller Object using the JaxB Context
+            Unmarshaller unmarshaller = jcInput.createUnmarshaller();
+
+            // Set the Unmarshaller media type to JSON or XML
+            unmarshaller.setProperty(UnmarshallerProperties.MEDIA_TYPE, "application/json");
+
+            // Set it to true if you need to include the JSON root element in
+            // the
+            // JSON input
+            unmarshaller.setProperty(UnmarshallerProperties.JSON_INCLUDE_ROOT, true);
+
+            mtbInput = (StockageTable) unmarshaller.unmarshal(fileInput);
+        } catch (PropertyException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (JAXBException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        VueTable vt = new VueTable(mtbInput);
+
         // session.invalidate();
 
-        VueTable vt = new VueTable();
+        // VueTable vt = new VueTable();
 
         // TODO - monter main
-        vt.getMainSud().add(Carte.AP.getRang());
-        vt.getMainSud().add(Carte.DP.getRang());
-        vt.getMainSud().add(Carte._6P.getRang());
-        vt.getMainSud().add(Carte._4P.getRang());
-        vt.getMainSud().add(Carte.VC.getRang());
-        vt.getMainSud().add(Carte._6C.getRang());
-        vt.getMainSud().add(Carte._5C.getRang());
-        vt.getMainSud().add(Carte.RK.getRang());
-        vt.getMainSud().add(Carte.VK.getRang());
-        vt.getMainSud().add(Carte._5K.getRang());
-        vt.getMainSud().add(Carte._9T.getRang());
-        vt.getMainSud().add(Carte._8T.getRang());
-        vt.getMainSud().add(Carte._6T.getRang());
-
-        vt.getMainOuest().add(Carte._10P.getRang());
-        vt.getMainOuest().add(Carte._9P.getRang());
-        vt.getMainOuest().add(Carte._7P.getRang());
-        vt.getMainOuest().add(Carte._3P.getRang());
-        vt.getMainOuest().add(Carte._10C.getRang());
-        vt.getMainOuest().add(Carte._9C.getRang());
-        vt.getMainOuest().add(Carte._7C.getRang());
-        vt.getMainOuest().add(Carte.DK.getRang());
-        vt.getMainOuest().add(Carte._8K.getRang());
-        vt.getMainOuest().add(Carte._2K.getRang());
-        vt.getMainOuest().add(Carte._7T.getRang());
-        vt.getMainOuest().add(Carte._4T.getRang());
-        vt.getMainOuest().add(Carte._2T.getRang());
-
-        vt.getMainNord().add(Carte.RP.getRang());
-        vt.getMainNord().add(Carte._5P.getRang());
-        vt.getMainNord().add(Carte._2P.getRang());
-        vt.getMainNord().add(Carte.RC.getRang());
-        vt.getMainNord().add(Carte.DC.getRang());
-        vt.getMainNord().add(Carte._4C.getRang());
-        vt.getMainNord().add(Carte._9K.getRang());
-        vt.getMainNord().add(Carte._6K.getRang());
-        vt.getMainNord().add(Carte.AT.getRang());
-        vt.getMainNord().add(Carte.DT.getRang());
-        vt.getMainNord().add(Carte.VT.getRang());
-        vt.getMainNord().add(Carte._10T.getRang());
-        vt.getMainNord().add(Carte._5T.getRang());
-
-        vt.getMainEst().add(Carte.VP.getRang());
-        vt.getMainEst().add(Carte._8P.getRang());
-        vt.getMainEst().add(Carte.AC.getRang());
-        vt.getMainEst().add(Carte._8C.getRang());
-        vt.getMainEst().add(Carte._3C.getRang());
-        vt.getMainEst().add(Carte._2C.getRang());
-        vt.getMainEst().add(Carte.AK.getRang());
-        vt.getMainEst().add(Carte._10K.getRang());
-        vt.getMainEst().add(Carte._7K.getRang());
-        vt.getMainEst().add(Carte._4K.getRang());
-        vt.getMainEst().add(Carte._3K.getRang());
-        vt.getMainEst().add(Carte.RT.getRang());
-        vt.getMainEst().add(Carte._3T.getRang());
+        // vt.getMainSud().add(Carte.AP.getRang());
+        // vt.getMainSud().add(Carte.DP.getRang());
+        // vt.getMainSud().add(Carte._6P.getRang());
+        // vt.getMainSud().add(Carte._4P.getRang());
+        // vt.getMainSud().add(Carte.VC.getRang());
+        // vt.getMainSud().add(Carte._6C.getRang());
+        // vt.getMainSud().add(Carte._5C.getRang());
+        // vt.getMainSud().add(Carte.RK.getRang());
+        // vt.getMainSud().add(Carte.VK.getRang());
+        // vt.getMainSud().add(Carte._5K.getRang());
+        // vt.getMainSud().add(Carte._9T.getRang());
+        // vt.getMainSud().add(Carte._8T.getRang());
+        // vt.getMainSud().add(Carte._6T.getRang());
+        //
+        // vt.getMainOuest().add(Carte._10P.getRang());
+        // vt.getMainOuest().add(Carte._9P.getRang());
+        // vt.getMainOuest().add(Carte._7P.getRang());
+        // vt.getMainOuest().add(Carte._3P.getRang());
+        // vt.getMainOuest().add(Carte._10C.getRang());
+        // vt.getMainOuest().add(Carte._9C.getRang());
+        // vt.getMainOuest().add(Carte._7C.getRang());
+        // vt.getMainOuest().add(Carte.DK.getRang());
+        // vt.getMainOuest().add(Carte._8K.getRang());
+        // vt.getMainOuest().add(Carte._2K.getRang());
+        // vt.getMainOuest().add(Carte._7T.getRang());
+        // vt.getMainOuest().add(Carte._4T.getRang());
+        // vt.getMainOuest().add(Carte._2T.getRang());
+        //
+        // vt.getMainNord().add(Carte.RP.getRang());
+        // vt.getMainNord().add(Carte._5P.getRang());
+        // vt.getMainNord().add(Carte._2P.getRang());
+        // vt.getMainNord().add(Carte.RC.getRang());
+        // vt.getMainNord().add(Carte.DC.getRang());
+        // vt.getMainNord().add(Carte._4C.getRang());
+        // vt.getMainNord().add(Carte._9K.getRang());
+        // vt.getMainNord().add(Carte._6K.getRang());
+        // vt.getMainNord().add(Carte.AT.getRang());
+        // vt.getMainNord().add(Carte.DT.getRang());
+        // vt.getMainNord().add(Carte.VT.getRang());
+        // vt.getMainNord().add(Carte._10T.getRang());
+        // vt.getMainNord().add(Carte._5T.getRang());
+        //
+        // vt.getMainEst().add(Carte.VP.getRang());
+        // vt.getMainEst().add(Carte._8P.getRang());
+        // vt.getMainEst().add(Carte.AC.getRang());
+        // vt.getMainEst().add(Carte._8C.getRang());
+        // vt.getMainEst().add(Carte._3C.getRang());
+        // vt.getMainEst().add(Carte._2C.getRang());
+        // vt.getMainEst().add(Carte.AK.getRang());
+        // vt.getMainEst().add(Carte._10K.getRang());
+        // vt.getMainEst().add(Carte._7K.getRang());
+        // vt.getMainEst().add(Carte._4K.getRang());
+        // vt.getMainEst().add(Carte._3K.getRang());
+        // vt.getMainEst().add(Carte.RT.getRang());
+        // vt.getMainEst().add(Carte._3T.getRang());
 
         session.setAttribute(INFO_SESSION, vt);
 
@@ -195,7 +226,12 @@ public class jouerCtrl {
         // mtbOutput.setMainEstCoeur("6,5,3,2");
         // mtbOutput.setMainEstCarreau("Q,6,5");
         // mtbOutput.setMainEstTrefle("K,8,5");
-
+        //
+        // mtbOutput.setDonneur("S");
+        // mtbOutput.setEncheres("encheres");
+        // mtbOutput.setNotes("notes");
+        // mtbOutput.setVulnerabilite("vulnerabilite");
+        //
         // // Create a JaxBContext
         // JAXBContext jcOutput = JAXBContext.newInstance(StockageTable.class);
         // // Create the Marshaller Object using the JaxB Context
@@ -212,7 +248,7 @@ public class jouerCtrl {
         // marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         //
         // // Marshal the employee object to JSON and print the output to
-        // console
+        // // console
         // marshaller.marshal(mtbOutput, System.out);
         // marshaller.marshal(mtbOutput, fileOutput);
 
