@@ -54,22 +54,12 @@ function eleveBracket(chaine) {
  */
 function afficheMain(direction, chaineMain) {
 
-	// On affiche les cartes - DEBUG
-	// $( ".inner" ).append( "<p>Test</p>" );
-
-	// Ajouter un bouton dynamique
-	// you cannot append anything to the input element ..
-	// Use .after or .before
-	// $('.submit').after($('<input type="button" value="test">'));
-
-	// TODO - écrire une fonction retour couleur...
-
 	var carte = chaineMain.split(',');
 	$.each(carte, function(key, value) {
 		var numCarte = parseInt(value.trim());
 		var bouton = "<a href=\"/jouer?direction=" + direction + "&carte=" + numCarte + "\""
-				+ " class=\"btn btn-default btn-carte\" role=\"button\"><span class=\"text-center\"  style=\"color:red;\">" + retourRang(numCarte)
-				+ retourSorteSymbole(numCarte) + "</span></a>";
+				+ " class=\"btn btn-default btn-carte\" role=\"button\"><span class=\"text-center\"  style=\"color:" + retourCouleur(retourSorte(numCarte))
+				+ ";\">" + retourRang(numCarte) + retourSorteSymbole(numCarte) + "</span></a>";
 		console.log(bouton);
 		var directionSorte = "#" + direction + retourSorte(numCarte);
 		console.log(directionSorte);
@@ -90,6 +80,32 @@ function afficheCarteJouer(direction, carteJouer) {
 	var directionSorte = "#" + direction;
 	console.log(directionSorte);
 	$(directionSorte).append(bouton);
+}
+
+/**
+ * Fonction qui retourne la couleur d'une sorte
+ * 
+ * @param sorte
+ * @returns {String}
+ */
+function retourCouleur(sorte) {
+
+	var couleur;
+
+	switch (sorte) {
+
+	case "C":
+	case "K":
+		couleur = "red";
+		break;
+	case "P":
+	case "T":
+	default:
+		couleur = "black";
+
+	}
+
+	return couleur;
 }
 
 /**
