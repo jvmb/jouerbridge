@@ -40,9 +40,8 @@
                             <div class="col-lg-12">
                                 <h1>Main de bridge</h1>
                                 <h2>Temps actuel: ${serverTime}.</h2>
-
-                                <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle
-                     Menu</a>
+								<!-- TODO - retrait bouton -->
+								<!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
                             </div>
                         </div>
                     </div>
@@ -51,6 +50,11 @@
                 <!--                                 <a href="#" class="btn btn-default btn-carte" role="button"><span class="pull-left">A</span></a> -->
                 <!--          /#page-content-wrapper -->
                 <div class="container">
+                	 <div class="row">
+                        <div class="col-sm-4"></div>
+                        <div id="DIRN" class="col-sm-4" style="background-color: lightgray;">Nord</div>
+                        <div class="col-sm-4"></div>
+                    </div>
                     <div class="row">
                         <div class="col-sm-4"></div>
                         <div id="NP" class="col-sm-4" style="background-color: lightgray;"></div>
@@ -71,37 +75,50 @@
                         <div id="NT" class="col-sm-4" style="background-color: lightgray;"></div>
                         <div class="col-sm-4"></div>
                     </div>
+                   <div class="row">
+                        <div id="DIRO" class="col-sm-4" style="background-color: lightgray;">Ouest</div>
+                        <div class="col-sm-1"></div>
+                        <div id="N" class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
+                        <div id="DIRE" class="col-sm-4" style="background-color: lightgray;">Est</div>
+                    </div>                    
                     <div class="row">
                         <div id="OP" class="col-sm-4" style="background-color: lightgray;"></div>
-                        <div id="N-1" class="col-sm-1"></div>
-                        <div id="N" class="col-sm-1"></div>
-                        <div id="N+1" class="col-sm-1"></div>
-                        <div id="N+2" class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
                         <div id="EP" class="col-sm-4" style="background-color: lightgray;"></div>
                     </div>
                     <div class="row">
                         <div id="OC" class="col-sm-4" style="background-color: lightgray;"></div>
                         <div id="O" class="col-sm-1"></div>
-                        <div id="O+1" class="col-sm-1"></div>
-                        <div id="O+2" class="col-sm-1"></div>
-                        <div id="O+3" class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
                         <div id="EC" class="col-sm-4" style="background-color: lightgray;"></div>
                     </div>
                     <div class="row">
                         <div id="OK" class="col-sm-4" style="background-color: lightgray;"></div>
-                        <div id="E-3" class="col-sm-1"></div>
-                        <div id="E-2" class="col-sm-1"></div>
-                        <div id="E-1" class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
                         <div id="E" class="col-sm-1"></div>
                         <div id="EK" class="col-sm-4" style="background-color: lightgray;"></div>
                     </div>
                     <div class="row">
                         <div id="OT" class="col-sm-4" style="background-color: lightgray;"></div>
-                        <div id="S-2" class="col-sm-1"></div>
-                        <div id="S-1" class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
                         <div id="S" class="col-sm-1"></div>
-                        <div id="S+1" class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
                         <div id="ET" class="col-sm-4" style="background-color: lightgray;"></div>
+                    </div>
+                      <div class="row">
+                        <div class="col-sm-4"></div>
+                        <div id="DIRS" class="col-sm-4" style="background-color: lightgray;">Sud</div>
+                        <div class="col-sm-4"></div>
                     </div>
                     <div class="row">
                         <div class="col-sm-4"></div>
@@ -123,8 +140,22 @@
                         <div id="ST" class="col-sm-4" style="background-color: lightgray;"></div>
                         <div class="col-sm-4"></div>
                     </div>
+                   	<div class="row">
+                   		<div class="col-sm-4 ligne_bouton"><a class="btn btn-default" href="#" role="button">Nord-Sud <span class="badge">0</span></a></div>
+                   		<div class="col-sm-4 ligne_bouton"></div>
+                        <div class="col-sm-4 ligne_bouton"></div>
+                    </div>
+         			<div class="row">
+                   		<div class="col-sm-4 ligne_bouton"><a class="btn btn-default" href="#" role="button">Est-Ouest <span class="badge">0</span></a></div>
+                   		<div class="col-sm-4 ligne_bouton"></div>
+                        <div class="col-sm-4 ligne_bouton"></div>
+                    </div>
+                    <div class="row">
+                   		<div class="col-sm-4 ligne_bouton"><a class="btn btn-default" href="#" role="button">Retour</a></div>
+                   		<div class="col-sm-4 ligne_bouton"></div>
+                        <div class="col-sm-4 ligne_bouton"></div>
+                    </div>                    
                 </div>
-
             </div>
             <!-- /#wrapper -->
 

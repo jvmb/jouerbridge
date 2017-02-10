@@ -21,11 +21,15 @@ $(document).ready(function() {
 	afficheCarteJouer("N", document.getElementById("mNordIdCarte").value);
 	afficheCarteJouer("E", document.getElementById("mEstIdCarte").value);
 
+	// TODO - mettre en memoire de session pour voir le memnu ou pas
+	// $("#wrapper").toggleClass("toggled");
+
+	// TODO - a enlever
 	// Toggle le menu
-	$("#menu-toggle").click(function(e) {
-		e.preventDefault();
-		$("#wrapper").toggleClass("toggled");
-	});
+	// $("#menu-toggle").click(function(e) {
+	// e.preventDefault();
+	// $("#wrapper").toggleClass("toggled");
+	// });
 
 });
 
@@ -75,7 +79,9 @@ function afficheMain(direction, chaineMain) {
  */
 function afficheCarteJouer(direction, carteJouer) {
 
-	var bouton = "<a href=\"#\" class=\"btn btn-default btn-carte\" role=\"button\"><span class=\"text-center\">" + carteJouer + "</span></a>";
+	var numCarte = parseInt(carteJouer.trim());
+	var bouton = "<a href=\"#\" class=\"btn btn-default btn-carte\" role=\"button\"><span class=\"text-center\"  style=\"color:"
+			+ retourCouleur(retourSorte(numCarte)) + ";\">" + retourRang(numCarte) + retourSorteSymbole(numCarte) + "</span></a>";
 	console.log(bouton);
 	var directionSorte = "#" + direction;
 	console.log(directionSorte);
@@ -199,7 +205,7 @@ function retourRang(numCarte) {
 		break;
 	default:
 		console.log("retourRang(), numCarte impossible: " + numCarte);
-		rang = "0";
+		rang = "";
 	}
 
 	return rang;
@@ -279,7 +285,7 @@ function retourSorte(numCarte) {
 		break;
 	default:
 		console.log("retourSorte(), numCarte impossible: " + numCarte);
-		sorte = "0";
+		sorte = "";
 	}
 
 	return sorte;
@@ -359,7 +365,7 @@ function retourSorteSymbole(numCarte) {
 		break;
 	default:
 		console.log("retourSorte(), numCarte impossible: " + numCarte);
-		sorte = "0";
+		sorte = "";
 	}
 
 	return sorte;

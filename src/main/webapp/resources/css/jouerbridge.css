@@ -1,11 +1,25 @@
 /* jouerbridge.css */
+
+/* grandeur bouton caret */
 a.btn.btn-default.btn-carte {
 	padding: 0;
 	height: 28px;
 	width: 28px;
 }
 
+/* hauteur ligne carte */
 div.col-sm-4
 {
 	height:30px;
+}
+
+/* hauteur ligne bouton */
+div.col-sm-4.ligne_bouton
+{
+	height:60px;
+}
+
+/* largeur bouton */
+a.btn.btn-default {
+	width: 120px;
 }
