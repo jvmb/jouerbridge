@@ -60,14 +60,17 @@ function afficheMain(direction, chaineMain) {
 
 	var carte = chaineMain.split(',');
 	$.each(carte, function(key, value) {
-		var numCarte = parseInt(value.trim());
-		var bouton = "<a href=\"/jouer?direction=" + direction + "&carte=" + numCarte + "\""
-				+ " class=\"btn btn-default btn-carte\" role=\"button\"><span class=\"text-center\"  style=\"color:" + retourCouleur(retourSorte(numCarte))
-				+ ";\">" + retourRang(numCarte) + retourSorteSymbole(numCarte) + "</span></a>";
-		console.log(bouton);
-		var directionSorte = "#" + direction + retourSorte(numCarte);
-		console.log(directionSorte);
-		$(directionSorte).append(bouton);
+		var numCarteStr = String(value.trim());
+		if (numCarteStr) {
+			var numCarte = parseInt(numCarteStr);
+			var bouton = "<a href=\"/jouer?direction=" + direction + "&carte=" + numCarte + "\""
+					+ " class=\"btn btn-default btn-carte\" role=\"button\"><span class=\"text-center\"  style=\"color:" + retourCouleur(retourSorte(numCarte))
+					+ ";\">" + retourRang(numCarte) + retourSorteSymbole(numCarte) + "</span></a>";
+			console.log(bouton);
+			var directionSorte = "#" + direction + retourSorte(numCarte);
+			console.log(directionSorte);
+			$(directionSorte).append(bouton);
+		}
 	});
 }
 
@@ -78,14 +81,16 @@ function afficheMain(direction, chaineMain) {
  * @param carteJouer
  */
 function afficheCarteJouer(direction, carteJouer) {
-
-	var numCarte = parseInt(carteJouer.trim());
-	var bouton = "<a href=\"#\" class=\"btn btn-default btn-carte\" role=\"button\"><span class=\"text-center\"  style=\"color:"
-			+ retourCouleur(retourSorte(numCarte)) + ";\">" + retourRang(numCarte) + retourSorteSymbole(numCarte) + "</span></a>";
-	console.log(bouton);
-	var directionSorte = "#" + direction;
-	console.log(directionSorte);
-	$(directionSorte).append(bouton);
+	var numCarteStr = String(carteJouer.trim());
+	if (numCarteStr) {
+		var numCarte = parseInt(numCarteStr);
+		var bouton = "<a href=\"#\" class=\"btn btn-default btn-carte\" role=\"button\"><span class=\"text-center\"  style=\"color:"
+				+ retourCouleur(retourSorte(numCarte)) + ";\">" + retourRang(numCarte) + retourSorteSymbole(numCarte) + "</span></a>";
+		console.log(bouton);
+		var directionSorte = "#" + direction;
+		console.log(directionSorte);
+		$(directionSorte).append(bouton);
+	}
 }
 
 /**

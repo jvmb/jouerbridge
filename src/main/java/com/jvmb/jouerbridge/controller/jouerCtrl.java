@@ -1,8 +1,7 @@
 package com.jvmb.jouerbridge.controller;
 
 import java.io.File;
-import java.text.DateFormat;
-import java.util.Date;
+import java.util.LinkedList;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
@@ -11,6 +10,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.PropertyException;
 import javax.xml.bind.Unmarshaller;
 
+import org.apache.commons.lang3.SerializationUtils;
 import org.eclipse.persistence.jaxb.UnmarshallerProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -72,14 +72,15 @@ public class jouerCtrl {
             e.printStackTrace();
         }
 
+        // On reset l'objet INFO_SESSION
+        session.removeAttribute(INFO_SESSION);
+        // Creation de la list des etats du jeu
+        LinkedList<VueTable> lvt = new LinkedList<VueTable>();
         VueTable vt = new VueTable(mtbInput);
+        lvt.add(vt);
 
-        session.setAttribute(INFO_SESSION, vt);
+        session.setAttribute(INFO_SESSION, lvt);
 
-        Date date = new Date();
-        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-        String formattedDate = dateFormat.format(date);
-        model.addAttribute("serverTime", formattedDate);
         model.addAttribute("mainVue", vt);
 
         return "homejsp";
@@ -98,26 +99,30 @@ public class jouerCtrl {
     public String jouerUneCarte(@RequestParam(value = "direction", required = true) String direction,
             @RequestParam(value = "carte", required = true) Integer carte, ModelMap model, Locale locale, HttpSession session) {
 
-        // TODO - Travailler les cartes
-        VueTable vt = (VueTable) session.getAttribute(INFO_SESSION);
+        @SuppressWarnings("unchecked")
+        LinkedList<VueTable> lvt = (LinkedList<VueTable>) session.getAttribute(INFO_SESSION);
+        VueTable vt = lvt.getLast();
 
-        // Trouver la bonne main
+        // Faire copie du dernier
+        VueTable vtClone = SerializationUtils.clone((VueTable) vt);
+
+        // Trouver la bonne main - et appliqué changement
         switch (direction) {
         case "S":
-            vt.getMainSud().remove(carte);
-            vt.setCarteSud(carte);
+            vtClone.getMainSud().remove(carte);
+            vtClone.setCarteSud(carte);
             break;
         case "O":
-            vt.getMainOuest().remove(carte);
-            vt.setCarteOuest(carte);
+            vtClone.getMainOuest().remove(carte);
+            vtClone.setCarteOuest(carte);
             break;
         case "N":
-            vt.getMainNord().remove(carte);
-            vt.setCarteNord(carte);
+            vtClone.getMainNord().remove(carte);
+            vtClone.setCarteNord(carte);
             break;
         case "E":
-            vt.getMainEst().remove(carte);
-            vt.setCarteEst(carte);
+            vtClone.getMainEst().remove(carte);
+            vtClone.setCarteEst(carte);
             break;
 
         default:
@@ -125,10 +130,34 @@ public class jouerCtrl {
 
         }
 
-        Date date = new Date();
-        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-        String formattedDate = dateFormat.format(date);
-        model.addAttribute("serverTime", formattedDate);
+        // Ajouter le nouvel etat à list
+        lvt.add(vtClone);
+
+        model.addAttribute("mainVue", vtClone);
+
+        return "homejsp";
+
+    }
+
+    /**
+     * 
+     * @param model
+     * @param locale
+     * @param session
+     * @return
+     */
+    @RequestMapping(value = "/retour", method = RequestMethod.GET)
+    public String retourEtatPrec(Model model, Locale locale, HttpSession session) {
+
+        // TODO - verif si au moins 2 élément
+
+        @SuppressWarnings("unchecked")
+        LinkedList<VueTable> lvt = (LinkedList<VueTable>) session.getAttribute(INFO_SESSION);
+        // Enleve le dernier
+        lvt.removeLast();
+        // recup le précédent
+        VueTable vt = lvt.getLast();
+
         model.addAttribute("mainVue", vt);
 
         return "homejsp";

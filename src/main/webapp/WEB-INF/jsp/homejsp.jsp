@@ -39,7 +39,6 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <h1>Main de bridge</h1>
-                                <h2>Temps actuel: ${serverTime}.</h2>
 								<!-- TODO - retrait bouton -->
 								<!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
                             </div>
@@ -151,7 +150,7 @@
                         <div class="col-sm-4 ligne_bouton"></div>
                     </div>
                     <div class="row">
-                   		<div class="col-sm-4 ligne_bouton"><a class="btn btn-default" href="#" role="button">Retour</a></div>
+                   		<div class="col-sm-4 ligne_bouton"><a class="btn btn-default" href="/retour" role="button">Retour</a></div>
                    		<div class="col-sm-4 ligne_bouton"></div>
                         <div class="col-sm-4 ligne_bouton"></div>
                     </div>                    

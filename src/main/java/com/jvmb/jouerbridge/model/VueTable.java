@@ -1,5 +1,6 @@
 package com.jvmb.jouerbridge.model;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -14,7 +15,9 @@ import com.jvmb.jouerbridge.util.ModelUtils;
  * @author marcbeaulieu
  *
  */
-public class VueTable {
+public class VueTable implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private List<Integer> mainSud = new LinkedList<Integer>();
     private List<Integer> mainOuest = new LinkedList<Integer>();
@@ -97,18 +100,6 @@ public class VueTable {
     public void setMainEst(List<Integer> mainEst) {
         this.mainEst = mainEst;
     }
-
-    // TODO pour recup
-    // public void sortMainsPlanchette() {
-    // Collections.sort(mainSud);
-    // Collections.reverse(mainSud);
-    // Collections.sort(mainOuest);
-    // Collections.reverse(mainOuest);
-    // Collections.sort(mainNord);
-    // Collections.reverse(mainNord);
-    // Collections.sort(mainEst);
-    // Collections.reverse(mainEst);
-    // }
 
     public Integer getCarteSud() {
         return carteSud;
