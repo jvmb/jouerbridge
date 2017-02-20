@@ -133,6 +133,18 @@ public class VueTable implements Serializable {
         this.carteEst = carteEst;
     }
 
+    public boolean isVueTableEmpty() {
+        int sud = mainSud.size();
+        int ouest = mainOuest.size();
+        int nord = mainNord.size();
+        int est = mainEst.size();
+        // Si on a au moins 1 carte retourne false
+        if (sud + ouest + nord + est > 0) {
+            return false;
+        }
+        return true;
+    }
+
     @Override
     public String toString() {
         return "VueTable [mainSud=" + mainSud + ", mainOuest=" + mainOuest + ", mainNord=" + mainNord + ", mainEst=" + mainEst + ", carteSud=" + carteSud

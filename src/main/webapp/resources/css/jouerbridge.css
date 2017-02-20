@@ -20,6 +20,6 @@ div.col-sm-4.ligne_bouton
 }
 
 /* largeur bouton */
-a.btn.btn-default {
+.btn.btn-default {
 	width: 120px;
 }

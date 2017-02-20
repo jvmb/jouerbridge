@@ -3,6 +3,12 @@
  */
 $(document).ready(function() {
 
+	// Si on a un message d'erreur, on affiche et rien d'autre
+	var msgErreur = String(document.getElementById("mainErreurId").value);
+	if (msgErreur.trim()) {
+		alert("ERREUR: " + msgErreur);
+	}
+
 	// On va chercher les 4 mains
 	var mSudVar = eleveBracket(document.getElementById("mSudId").value);
 	var mOuestVar = eleveBracket(document.getElementById("mOuestId").value);
@@ -20,16 +26,6 @@ $(document).ready(function() {
 	afficheCarteJouer("O", document.getElementById("mOuestIdCarte").value);
 	afficheCarteJouer("N", document.getElementById("mNordIdCarte").value);
 	afficheCarteJouer("E", document.getElementById("mEstIdCarte").value);
-
-	// TODO - mettre en memoire de session pour voir le memnu ou pas
-	// $("#wrapper").toggleClass("toggled");
-
-	// TODO - a enlever
-	// Toggle le menu
-	// $("#menu-toggle").click(function(e) {
-	// e.preventDefault();
-	// $("#wrapper").toggleClass("toggled");
-	// });
 
 });
 

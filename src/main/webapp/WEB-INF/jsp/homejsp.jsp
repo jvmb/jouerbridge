@@ -25,31 +25,29 @@
 
         <body>
             <div id="wrapper">
-                <!-- Sidebar -->
-                <div id="sidebar-wrapper">
-                    <ul class="sidebar-nav">
-                        <li class="sidebar-brand"><a href="#"> Titre menu </a></li>
-                        <li><a href="#">menu 1</a></li>
-                    </ul>
-                </div>
-                <!-- /#sidebar-wrapper -->
-                <!-- Page Content -->
-                <div id="page-content-wrapper">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h1>Main de bridge</h1>
-								<!-- TODO - retrait bouton -->
-								<!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--                                 <a href="#" class="btn btn-default btn-carte" role="button"><span class="pull-left">A</span></a> -->
-                <!--          /#page-content-wrapper -->
                 <div class="container">
-                	 <div class="row">
+ 					<!-- Page Content -->
+                	<div id="page-content-wrapper">
+                    	<div class="container-fluid">
+                        	<div class="row">
+                            	<div class="col-xs-4">
+                                	<h1>Main de bridge</h1>
+                            	</div>
+                        	</div>
+                    	</div>
+                	</div>
+					<div class="row">
+						<div class="col-xs-4">
+							<div class="form-group">
+								<form action="/loaderfichier" enctype="multipart/form-data" method="post">
+									<label class="control-label">Fichier de bridge</label> 
+									<input type="file" class="filestyle" name="filebridge" data-icon="false">
+									<input type="submit" class="btn btn-default" value="Charger">
+								</form>
+							</div>
+				       </div>
+			        </div>
+			        <div class="row">
                         <div class="col-sm-4"></div>
                         <div id="DIRN" class="col-sm-4" style="background-color: lightgray;">Nord</div>
                         <div class="col-sm-4"></div>
@@ -169,9 +167,8 @@
                 <input id="mOuestIdCarte" type="hidden" value="${mainVue.carteOuest}" name="mOuestVarCarte" />
                 <input id="mNordIdCarte" type="hidden" value="${mainVue.carteNord}" name="mNordVarCarte" />
                 <input id="mEstIdCarte" type="hidden" value="${mainVue.carteEst}" name="mEstVarCarte" />
+                <input id="mainErreurId" type="hidden" value="${mainErreur}" name="mainErreur" />
             </div>
-
-
 
             <!-- jQuery -->
             <script src="resources/jquery-2.2.0/jquery-2.2.0.min.js"></script>
