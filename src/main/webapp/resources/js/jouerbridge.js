@@ -27,6 +27,10 @@ $(document).ready(function() {
 	afficheCarteJouer("N", document.getElementById("mNordIdCarte").value);
 	afficheCarteJouer("E", document.getElementById("mEstIdCarte").value);
 
+	// Les plis
+	$("#BADGENS").text(document.getElementById("mPliNS").value);
+	$("#BADGEEO").text(document.getElementById("mPliEO").value);
+
 });
 
 /**
@@ -78,7 +82,8 @@ function afficheMain(direction, chaineMain) {
  */
 function afficheCarteJouer(direction, carteJouer) {
 	var numCarteStr = String(carteJouer.trim());
-	if (numCarteStr) {
+	// Si different d'une carte vides
+	if (numCarteStr !== "52") {
 		var numCarte = parseInt(numCarteStr);
 		var bouton = "<a href=\"#\" class=\"btn btn-default btn-carte\" role=\"button\"><span class=\"text-center\"  style=\"color:"
 				+ retourCouleur(retourSorte(numCarte)) + ";\">" + retourRang(numCarte) + retourSorteSymbole(numCarte) + "</span></a>";

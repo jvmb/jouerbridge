@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.jvmb.jouerbridge.model.Carte;
 import com.jvmb.jouerbridge.model.StockageTable;
 import com.jvmb.jouerbridge.model.VueTable;
 
@@ -192,6 +193,66 @@ public class jouerCtrl {
         }
 
         model.addAttribute("mainVue", vtClone);
+        model.addAttribute("mainErreur", erreurMsg);
+
+        return "homejsp";
+
+    }
+
+    /**
+     * 
+     * @param direction
+     * @param model
+     * @param session
+     * @return
+     */
+    @RequestMapping(value = "/pli", method = RequestMethod.GET)
+    public String pliAUneEquipe(@RequestParam(value = "direction", required = true) String direction, Model model, HttpSession session) {
+
+        @SuppressWarnings("unchecked")
+        LinkedList<VueTable> lvt = (LinkedList<VueTable>) session.getAttribute(INFO_SESSION);
+
+        String erreurMsg = "";
+        VueTable vt = lvt.getLast();
+
+        if (!vt.isVueTableEmpty()) {
+            if (lvt.size() >= 2) {
+
+                VueTable vtClone = null;
+
+                // Faire copie du dernier
+                vtClone = SerializationUtils.clone((VueTable) vt);
+
+                vtClone.setCarteSud(Carte.VIDE.getRang());
+                vtClone.setCarteOuest(Carte.VIDE.getRang());
+                vtClone.setCarteNord(Carte.VIDE.getRang());
+                vtClone.setCarteEst(Carte.VIDE.getRang());
+
+                switch (direction) {
+                case "NS":
+                    vtClone.setPliNS(vtClone.getPliNS() + 1);
+                    break;
+                case "EO":
+                    vtClone.setPliEO(vtClone.getPliEO() + 1);
+                    break;
+                default:
+                    erreurMsg = "Problème pliAUneEquipe()!!";
+
+                }
+
+                // Ajout à la liste
+                lvt.add(vtClone);
+                model.addAttribute("mainVue", vtClone);
+            } else {
+                erreurMsg = "Vous êtes au début du jeu, aucun pli à ajouter!";
+                model.addAttribute("mainVue", vt);
+            }
+
+        } else {
+            erreurMsg = "Il n'y a pas de main de charger!";
+
+        }
+
         model.addAttribute("mainErreur", erreurMsg);
 
         return "homejsp";

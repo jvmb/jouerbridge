@@ -24,10 +24,13 @@ public class VueTable implements Serializable {
     private List<Integer> mainNord = new LinkedList<Integer>();
     private List<Integer> mainEst = new LinkedList<Integer>();
 
-    private Integer carteSud;
-    private Integer carteOuest;
-    private Integer carteNord;
-    private Integer carteEst;
+    private Integer carteSud = Carte.VIDE.getRang();
+    private Integer carteOuest = Carte.VIDE.getRang();
+    private Integer carteNord = Carte.VIDE.getRang();
+    private Integer carteEst = Carte.VIDE.getRang();
+
+    private Integer pliNS = 0;
+    private Integer pliEO = 0;
 
     /**
      * 
@@ -133,13 +136,29 @@ public class VueTable implements Serializable {
         this.carteEst = carteEst;
     }
 
+    public Integer getPliNS() {
+        return pliNS;
+    }
+
+    public void setPliNS(Integer pliNS) {
+        this.pliNS = pliNS;
+    }
+
+    public Integer getPliEO() {
+        return pliEO;
+    }
+
+    public void setPliEO(Integer pliEO) {
+        this.pliEO = pliEO;
+    }
+
     public boolean isVueTableEmpty() {
         int sud = mainSud.size();
         int ouest = mainOuest.size();
         int nord = mainNord.size();
         int est = mainEst.size();
-        // Si on a au moins 1 carte retourne false
-        if (sud + ouest + nord + est > 0) {
+        // Si on a au moins 1 carte ou autre info retourne false
+        if (sud + ouest + nord + est + carteSud + carteOuest + carteNord + carteEst + pliNS + pliEO > 0) {
             return false;
         }
         return true;
@@ -148,7 +167,7 @@ public class VueTable implements Serializable {
     @Override
     public String toString() {
         return "VueTable [mainSud=" + mainSud + ", mainOuest=" + mainOuest + ", mainNord=" + mainNord + ", mainEst=" + mainEst + ", carteSud=" + carteSud
-                + ", carteOuest=" + carteOuest + ", carteNord=" + carteNord + ", carteEst=" + carteEst + "]";
+                + ", carteOuest=" + carteOuest + ", carteNord=" + carteNord + ", carteEst=" + carteEst + ", pliNS=" + pliNS + ", pliEO=" + pliEO + "]";
     }
 
 }

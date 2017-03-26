@@ -138,12 +138,12 @@
                         <div class="col-sm-4"></div>
                     </div>
                    	<div class="row">
-                   		<div class="col-sm-4 ligne_bouton"><a class="btn btn-default" href="#" role="button">Nord-Sud <span class="badge">0</span></a></div>
+                   		<div class="col-sm-4 ligne_bouton"><a class="btn btn-default" href="/pli?direction=NS" role="button">Nord-Sud <span id="BADGENS" class="badge">0</span></a></div>
                    		<div class="col-sm-4 ligne_bouton"></div>
                         <div class="col-sm-4 ligne_bouton"></div>
                     </div>
          			<div class="row">
-                   		<div class="col-sm-4 ligne_bouton"><a class="btn btn-default" href="#" role="button">Est-Ouest <span class="badge">0</span></a></div>
+                   		<div class="col-sm-4 ligne_bouton"><a class="btn btn-default" href="/pli?direction=EO" role="button">Est-Ouest <span id="BADGEEO" class="badge">0</span></a></div>
                    		<div class="col-sm-4 ligne_bouton"></div>
                         <div class="col-sm-4 ligne_bouton"></div>
                     </div>
@@ -167,6 +167,8 @@
                 <input id="mOuestIdCarte" type="hidden" value="${mainVue.carteOuest}" name="mOuestVarCarte" />
                 <input id="mNordIdCarte" type="hidden" value="${mainVue.carteNord}" name="mNordVarCarte" />
                 <input id="mEstIdCarte" type="hidden" value="${mainVue.carteEst}" name="mEstVarCarte" />
+                <input id="mPliNS" type="hidden" value="${mainVue.pliNS}" name="mPliNS" />
+                <input id="mPliEO" type="hidden" value="${mainVue.pliEO}" name="mPliEO" />
                 <input id="mainErreurId" type="hidden" value="${mainErreur}" name="mainErreur" />
             </div>
 
