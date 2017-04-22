@@ -10,11 +10,12 @@
             <meta name="description" content="">
             <meta name="author" content="">
             <title>Main de bridge</title>
+            <c:set var="ctx" value="${pageContext.request.contextPath}" />
             <!-- Bootstrap Core CSS -->
-            <link href="resources/bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet">
+            <link href="${ctx}/resources/bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet">
             <!-- Custom CSS -->
-            <link href="resources/bootstrap-3.3.6/css/simple-sidebar.css" rel="stylesheet">
-            <link href="resources/css/jouerbridge.css" rel="stylesheet">
+            <link href="${ctx}/resources/bootstrap-3.3.6/css/simple-sidebar.css" rel="stylesheet">
+            <link href="${ctx}/resources/css/jouerbridge.css" rel="stylesheet">
             <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
             <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
             <!--[if lt IE 9]>
@@ -24,6 +25,9 @@
         </head>
 
         <body>
+        
+        	
+        	
             <div id="wrapper">
                 <div class="container">
  					<!-- Page Content -->
@@ -39,7 +43,7 @@
 					<div class="row">
 						<div class="col-xs-4">
 							<div class="form-group">
-								<form action="/loaderfichier" enctype="multipart/form-data" method="post">
+								<form action="${ctx}/loaderfichier" enctype="multipart/form-data" method="post">
 									<label class="control-label">Fichier de bridge</label> 
 									<input type="file" class="filestyle" name="filebridge" data-icon="false">
 									<input type="submit" class="btn btn-default" value="Charger">
@@ -138,17 +142,17 @@
                         <div class="col-sm-4"></div>
                     </div>
                    	<div class="row">
-                   		<div class="col-sm-4 ligne_bouton"><a class="btn btn-default" href="/pli?direction=NS" role="button">Nord-Sud <span id="BADGENS" class="badge">0</span></a></div>
+                   		<div class="col-sm-4 ligne_bouton"><a class="btn btn-default" href="${ctx}/pli?direction=NS" role="button">Nord-Sud <span id="BADGENS" class="badge">0</span></a></div>
                    		<div class="col-sm-4 ligne_bouton"></div>
                         <div class="col-sm-4 ligne_bouton"></div>
                     </div>
          			<div class="row">
-                   		<div class="col-sm-4 ligne_bouton"><a class="btn btn-default" href="/pli?direction=EO" role="button">Est-Ouest <span id="BADGEEO" class="badge">0</span></a></div>
+                   		<div class="col-sm-4 ligne_bouton"><a class="btn btn-default" href="${ctx}/pli?direction=EO" role="button">Est-Ouest <span id="BADGEEO" class="badge">0</span></a></div>
                    		<div class="col-sm-4 ligne_bouton"></div>
                         <div class="col-sm-4 ligne_bouton"></div>
                     </div>
                     <div class="row">
-                   		<div class="col-sm-4 ligne_bouton"><a class="btn btn-default" href="/retour" role="button">Retour</a></div>
+                   		<div class="col-sm-4 ligne_bouton"><a class="btn btn-default" href="${ctx}/retour" role="button">Retour</a></div>
                    		<div class="col-sm-4 ligne_bouton"></div>
                         <div class="col-sm-4 ligne_bouton"></div>
                     </div>                    
@@ -170,14 +174,20 @@
                 <input id="mPliNS" type="hidden" value="${mainVue.pliNS}" name="mPliNS" />
                 <input id="mPliEO" type="hidden" value="${mainVue.pliEO}" name="mPliEO" />
                 <input id="mainErreurId" type="hidden" value="${mainErreur}" name="mainErreur" />
+                <!-- Recup variable context path pour passer au fichier js - variable cachees (hidden) -->
+                <input id="ctxFromJspId" type="hidden" value="${ctx}" name="ctxFromJsp" />
             </div>
 
+
+			
+
+
             <!-- jQuery -->
-            <script src="resources/jquery-2.2.0/jquery-2.2.0.min.js"></script>
+            <script src="${ctx}/resources/jquery-2.2.0/jquery-2.2.0.min.js"></script>
             <!-- Bootstrap Core JavaScript -->
-            <script src="resources/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+            <script src="${ctx}/resources/bootstrap-3.3.6/js/bootstrap.min.js"></script>
             <!-- Script maison-->
-            <script src="/resources/js/jouerbridge.js" /></script>
+            <script src="${ctx}/resources/js/jouerbridge.js" /></script>
         </body>
 
         </html>

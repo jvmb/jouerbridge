@@ -41,7 +41,7 @@ public class jouerCtrl {
      * @param session
      * @return
      */
-    @RequestMapping(value = "/homejsp", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getHomeJsp(Model model, HttpSession session) {
         logger.info("getHomeJsp()");
 

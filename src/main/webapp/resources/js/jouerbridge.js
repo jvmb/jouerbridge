@@ -63,7 +63,9 @@ function afficheMain(direction, chaineMain) {
 		var numCarteStr = String(value.trim());
 		if (numCarteStr) {
 			var numCarte = parseInt(numCarteStr);
-			var bouton = "<a href=\"/jouer?direction=" + direction + "&carte=" + numCarte + "\""
+			var contextPath = String(document.getElementById("ctxFromJspId").value);
+			// alert(contextPath);
+			var bouton = "<a href=\"" + contextPath + "/jouer?direction=" + direction + "&carte=" + numCarte + "\""
 					+ " class=\"btn btn-default btn-carte\" role=\"button\"><span class=\"text-center\"  style=\"color:" + retourCouleur(retourSorte(numCarte))
 					+ ";\">" + retourRang(numCarte) + retourSorteSymbole(numCarte) + "</span></a>";
 			console.log(bouton);
